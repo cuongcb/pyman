@@ -7,7 +7,16 @@ class Engine(object):
         pass
 
     def execute(self, url, headers, body, method):
-        print("here")
+        header = self.buildHeaders(headers)
+        data = self.buildData(body)
+        
+        request = " -X " + method + " " + header + " " + data
+
+        print("curl" + request + url)
+
+        os.system("curl " + request + url)
+
+    def buildHeaders(self, headers):
         header = ""
         for key in headers:
             h = '"' + key + ': ' + headers[key] + '"'
@@ -15,15 +24,14 @@ class Engine(object):
             header = header + h
             header = header + " "
         
+        return header
+
+    def buildData(self, body):
         data = ""
         for key in body:
             b = '"' + key + ': ' + body[key] + '"'
             data = data + "-d "
             data = data + b
             data = data + " "
-
-        request = "-X " + method + " -i " + header + " " + data
-
-        print("curl" + request + url)
-
-        os.system("curl " + request + url)
+        
+        return data

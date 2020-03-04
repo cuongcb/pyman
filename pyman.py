@@ -85,8 +85,6 @@ def prepare(p, path, prefix):
                 continue
             p.withHeader(key, headers[key])
 
-    print(p)
-    
     return p
 
 def main():
@@ -94,10 +92,8 @@ def main():
     p = Pyman(e)
 
     p = prepare(p, "./pyfood", "/leetcode/")
-    print(p)
 
     p.GET()
-    # print(p)
 
 if __name__ == "__main__":
     main()
