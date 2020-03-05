@@ -29,7 +29,7 @@ class Engine(object):
     def buildData(self, body):
         data = ""
         for key in body:
-            b = '"' + key + ': ' + body[key] + '"'
+            b = '"' + key + '=' + body[key] + '"'
             data = data + "-d "
             data = data + b
             data = data + " "

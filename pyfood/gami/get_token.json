@@ -1,0 +1,12 @@
+{
+    "headers": {
+        "Content-type": "application/json"
+    },
+
+    "data": {
+        "otp": "123456",
+        "phone_number": "0111301301"
+    },
+
+    "url": "https://api-uat.vinid.net:6443/otp/v1/otp/verify"
+}
