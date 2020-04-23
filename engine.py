@@ -1,6 +1,7 @@
 from __future__ import print_function
 import subprocess
 import os
+import json
 
 class Engine(object):
     def __init__(self):
@@ -27,11 +28,9 @@ class Engine(object):
         return header
 
     def buildData(self, body):
-        data = ""
-        for key in body:
-            b = '"' + key + '=' + body[key] + '"'
-            data = data + "-d "
-            data = data + b
-            data = data + " "
+        data = '-d '
+        data = data + '"'
+        data = data + json.dumps(body).strip()
+        data = data + '" '
         
         return data

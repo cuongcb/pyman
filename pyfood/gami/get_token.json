@@ -1,6 +1,6 @@
 {
     "headers": {
-        "Content-type": "application/json"
+        "Content-type": "text/plain"
     },
 
     "data": {

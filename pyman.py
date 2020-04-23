@@ -54,15 +54,14 @@ class Pyman(object):
         self.execute(http.DELETE)
 
     def execute(self, method):
+        if self.engine == None:
+            print("Fatal: no engine")
+            return
         self.engine.execute(self.url, self.headers, self.body, method)
 
     def check(self):
         if self.url == "":
             print("Fatal: invalid url", self.url)
-            return False
-
-        if self.engine == None:
-            print("Fatal: no engine")
             return False
 
     # override print
